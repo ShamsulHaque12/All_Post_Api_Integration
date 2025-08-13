@@ -19,6 +19,7 @@ class _ApiIntegrationState extends State<ApiIntegration> {
           "API Integration",
           style: TextStyle(fontSize: 16, color: Colors.black),
         ),
+        backgroundColor: Colors.blue,
         centerTitle: true,
       ),
       body: FutureBuilder(
