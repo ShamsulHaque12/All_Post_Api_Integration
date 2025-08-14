@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-import 'get_api_integration.dart';
+import 'views/get_api_integration.dart';
 
 void main() {
   runApp(const MyApp());
