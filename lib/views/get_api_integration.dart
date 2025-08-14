@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import '../model/post_model.dart';
+import 'add_post.dart';
 import 'details_screen.dart';
 
 class ApiIntegration extends StatefulWidget {
@@ -43,8 +44,8 @@ class _ApiIntegrationState extends State<ApiIntegration> {
           return GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: crossAxisCount,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
               childAspectRatio: 0.7,
             ),
             itemCount: snapshot.data!.length,
@@ -56,44 +57,48 @@ class _ApiIntegrationState extends State<ApiIntegration> {
                     id: post.id.toString(),
                   ));
                 },
-                child: Card(
-                  surfaceTintColor: Colors.red,
-                  semanticContainer: true,
-                  borderOnForeground: true,
-                  elevation: 5,
-                  color: Colors.grey,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Image.network(
-                          post.image,
-                          height: 70,
-                          width: 70,
-                          fit: BoxFit.fill,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          post.title,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 16),
-                        ),
-                        SizedBox(height: 5,),
-                        Text(post.category!,style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                        ),),
-                        Text(
-                          "${post.price}",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red,
+                child: Expanded(
+                  child: Card(
+                    surfaceTintColor: Colors.red,
+                    semanticContainer: true,
+                    borderOnForeground: true,
+                    elevation: 5,
+                    color: Colors.grey,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.network(
+                            post.image,
+                            height: 70,
+                            width: 70,
+                            fit: BoxFit.fill,
                           ),
-                        ),
-                      ],
+                          SizedBox(height: 10),
+                          Text(
+                            post.title,
+                            textAlign: TextAlign.center,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          SizedBox(height: 5,),
+                          Text(post.category!,style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),),
+                          Text(
+                            "${post.price}",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.red,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -101,6 +106,16 @@ class _ApiIntegrationState extends State<ApiIntegration> {
             },
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            Get.to(()=>AddPost(
+
+            ));
+          });
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
