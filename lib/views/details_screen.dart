@@ -9,7 +9,7 @@ import '../services/api_services.dart';
 class DetailsScreen extends StatelessWidget {
   final String id;
 
-  DetailsScreen({super.key, required this.id});
+  const DetailsScreen({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class DetailsScreen extends StatelessWidget {
         backgroundColor: Colors.blue,
       ),
       body: FutureBuilder<PostDetailsModel?>(
-        future: ApiServices.getSingleData(id), // Return a single PostDetailsModel
+        future: ApiServices.getSingleData(id),
         builder: (_, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
