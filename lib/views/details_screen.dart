@@ -44,29 +44,37 @@ class DetailsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    singlePost.title,
+                    singlePost.title!,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.red),
                   ),
-                  Image.network(singlePost.image,height: 100,width: 100,fit: BoxFit.fill,),
+                  Image.network(singlePost.image!,height: 100,width: 100,fit: BoxFit.fill,),
                   SizedBox(height: 10,),
                   Text(
-                    singlePost.category,
+                    singlePost.category!,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.blue),
                   ),
                   Text(
-                    singlePost.description,
+                    singlePost.description!,
                     style: TextStyle(fontSize: 15, color: Colors.black),
                   ),
                   SizedBox(height: 10,),
-                  ListTile(
-                    leading: Icon(Icons.star,color: Colors.red,),
-                    title: Text(singlePost.rating.rate.toString()),
-                    subtitle: Text(singlePost.rating.count.toString()),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: ListTile(
+                          leading: Icon(Icons.star,color: Colors.red,),
+                          title: Text(singlePost.rating.rate.toString()),
+                          subtitle: Text(singlePost.rating.count.toString()),
+                        ),
+                      ),
+                      Text(
+                        "\$${singlePost.price.toString()}",
+                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.red),
+                      )
+                    ],
                   ),
-                  Text(
-                    "\$${singlePost.price.toString()}",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.red),
-                  )
+
                 ],
               ),
             ),
