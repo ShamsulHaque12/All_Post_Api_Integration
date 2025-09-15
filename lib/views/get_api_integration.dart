@@ -57,48 +57,46 @@ class _ApiIntegrationState extends State<ApiIntegration> {
                     id: post.id.toString(),
                   ));
                 },
-                child: Expanded(
-                  child: Card(
-                    surfaceTintColor: Colors.red,
-                    semanticContainer: true,
-                    borderOnForeground: true,
-                    elevation: 5,
-                    color: Colors.grey,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.network(
-                            post.image,
-                            height: 70,
-                            width: 70,
-                            fit: BoxFit.fill,
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            post.title,
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          SizedBox(height: 5,),
-                          Text(post.category!,style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.black,
+                child: Card(
+                  surfaceTintColor: Colors.red,
+                  semanticContainer: true,
+                  borderOnForeground: true,
+                  elevation: 5,
+                  color: Colors.grey,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Image.network(
+                          post.image,
+                          height: 70,
+                          width: 70,
+                          fit: BoxFit.fill,
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          post.title,
+                          textAlign: TextAlign.center,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        SizedBox(height: 5,),
+                        Text(post.category!,style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),),
+                        Text(
+                          "${post.price}",
+                          style: TextStyle(
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
-                          ),),
-                          Text(
-                            "${post.price}",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.red,
-                            ),
+                            color: Colors.red,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
